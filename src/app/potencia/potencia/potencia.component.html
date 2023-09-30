@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-6">
+        <div class="mb-3">
+            <h1>Potencias</h1>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Número base:</label>
+            <div class="col-sm-8">
+                <input name="num" [(ngModel)]="num" type="number" class="form-control">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Exponente:</label>
+            <div class="col-sm-8">
+                <input name="exp" [(ngModel)]="exp" type="number" class="form-control">
+            </div>
+        </div>
+        <div>
+            <button (click)="calcular()" class="btn btn-primary">Calcular</button>
+        </div>
+    </div>
+    <div class="col-6">
+        <div *ngIf="resultado !== null">
+            <h2>Resultado: {{ resultado }}</h2>
+            <h2>{{ proc }}</h2>
+        </div>
+    </div>
+</div>
