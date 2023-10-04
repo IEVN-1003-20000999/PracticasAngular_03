@@ -1,1 +1,62 @@
-<p>cinepolis works!</p>
+<div class="container">
+    <div class="cinepolis-header">
+      <h1>Bienvenido a Cinépolis</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <h3><b>REGISTRO</b></h3>
+          <div class="form-group">
+            <label for="nombre" class="cinepolis-form-label">Nombre</label>
+            <input type="text" class="form-control cinepolis-input" name="nombre" id="nombre" [(ngModel)]="compra.nombre">
+          </div>
+          <div class="form-group">
+            <label for="numero_personas" class="cinepolis-form-label"><b>Total de compradores:</b></label>
+            <input type="number" class="form-control cinepolis-input" name="numero_personas" id="numero_personas" min="1" [(ngModel)]="compra.num_P">
+          </div>
+          <div class="form-group">
+            <label for="num_boletos" class="cinepolis-form-label"><b>Total de boletos:</b></label>
+            <input type="number" class="form-control cinepolis-input" name="num_boletos" id="num_boletos" [(ngModel)]="compra.boletos">
+          </div>
+          <div class="form-group">
+            <label class="cinepolis-form-label"><b>¿Cuenta con tarjeta Cineco?</b></label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="tarjeta_cineco" id="tarjeta_cineco_si" [(ngModel)]="compra.tarjeta" [value]="true">
+              <label class="form-check-label" for="tarjeta_cineco_si">Sí</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="tarjeta_cineco" id="tarjeta_cineco_no" [(ngModel)]="compra.tarjeta" [value]="false">
+              <label class="form-check-label" for="tarjeta_cineco_no">No</label>
+            </div>
+          </div>
+          <button class="cinepolis-button" (click)="calcular()">Enviar</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <h3><b>INFORMACIÓN</b></h3>
+          <div class="card-body">
+            <hr *ngIf="compra_permitida">
+            <div *ngIf="compra.nombre">
+              <p><b>Nombre:</b> {{ compra.nombre }} </p>
+            </div>
+            <hr *ngIf="compra.nombre">
+            <div *ngIf="compra.num_P">
+              <p><b>Total de personas:</b> {{ compra.num_P }} </p>
+            </div>
+            <hr *ngIf="compra.num_P">
+            <div *ngIf="compra.boletos">
+              <p><b>Total de boletos:</b> {{ compra.boletos }} </p>
+            </div>
+            <hr *ngIf="compra.boletos">
+            <div *ngIf="compra.tarjeta">
+              <p>Por el uso de su "Tarjeta cineco" se proporcionará el 10% de descuento en su compra</p>
+            </div>
+            <hr *ngIf="compra.tarjeta">
+            <p *ngIf="compra_permitida" class="text-end"><b>Total:</b> ${{ total.toFixed(2) }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
