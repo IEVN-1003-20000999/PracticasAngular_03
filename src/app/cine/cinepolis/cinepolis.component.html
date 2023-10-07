@@ -16,7 +16,7 @@
           </div>
           <div class="form-group">
             <label for="num_boletos" class="cinepolis-form-label"><b>Total de boletos:</b></label>
-            <input type="number" class="form-control cinepolis-input" name="num_boletos" id="num_boletos" [(ngModel)]="compra.boletos">
+            <input type="number" class="form-control cinepolis-input" name="num_boletos" id="num_boletos" min="1" [(ngModel)]="compra.boletos">
           </div>
           <div class="form-group">
             <label class="cinepolis-form-label"><b>¿Cuenta con tarjeta Cineco?</b></label>
@@ -30,13 +30,13 @@
             </div>
           </div>
           <button class="cinepolis-button" (click)="calcular()">Enviar</button>
+          <button class="cinepolis-button-secundario" (click)="borrar()">Borrar</button>
         </div>
       </div>
       <div class="col-md-6">
         <div class="card">
           <h3><b>INFORMACIÓN</b></h3>
           <div class="card-body">
-            <hr *ngIf="compra_permitida">
             <div *ngIf="compra.nombre">
               <p><b>Nombre:</b> {{ compra.nombre }} </p>
             </div>
@@ -54,6 +54,9 @@
             </div>
             <hr *ngIf="compra.tarjeta">
             <p *ngIf="compra_permitida" class="text-end"><b>Total:</b> ${{ total.toFixed(2) }}</p>
+            <div *ngIf="!compra_permitida">
+              <div class="cinepolis-error">ERROR: No se puede realizar la compra</div>
+            </div> 
           </div>
         </div>
       </div>

@@ -40,7 +40,9 @@ body {
   margin-bottom: 20px;
 }
 
-.cinepolis-button {
+.cinepolis-button,
+.cinepolis-button-secundario
+{
   background-color: #0318d3;
   color: #fff;
   border: none;
@@ -48,6 +50,8 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
+  margin-top: 10px;
+  display: inline-block;
 }
 
 .cinepolis-button:hover {
@@ -57,4 +61,10 @@ body {
 .cinepolis-total {
   font-size: 18px;
   text-align: right;
+}
+
+.cinepolis-error{
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
 }

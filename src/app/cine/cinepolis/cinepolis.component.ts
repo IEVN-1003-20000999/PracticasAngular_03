@@ -19,17 +19,18 @@ export class CinepolisComponent {
 
     this.total = this.compra.total();
   }
+
+  
+  borrar(){
+    window.location.reload();
+  }
 }
 
 class Compra {
   nombre: string ="";
   num_P: number = 0;
   boletos: number = 0;
-  tarjeta: boolean;
-
-  constructor() {
-    this.tarjeta = false;
-  }
+  tarjeta: boolean = false;
 
   ComPermitida(): boolean {
     let max_boletos = this.num_P * 7;
